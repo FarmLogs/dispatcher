@@ -1,12 +1,12 @@
 (ns dispatcher.core
   (:gen-class)
-  (:require [clojure.edn :refer [read-string]]
+  (:require [clojure.edn :as edn]
             [clojure.java.io :as io]))
 
 (defn read-config
   [entry]
   (as-> (slurp (io/resource "entry-points.edn")) *
-        (read-string *)
+        (edn/read-string *)
         (* entry)))
 
 (defn dispatch
