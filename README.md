@@ -4,13 +4,13 @@ Launches the appropriate worker from an uberjar
 
 ## Usage
 In the resources directory:
-* Create a file entry-points.edn
+* Create a file entry-points.edn in `src/resource`
 
 In project.clj:
 * Set `:main` to `dispatcher.core`
 * Add dispatcher as a dependency
 
-    $ java -jar some-service-0.1.0-standalone.jar entry-point [args]
+    $ java -jar some-service-0.1.0-standalone.jar <entry-point> [args]
 
 ## Sample entry-points.edn
     {"web" {:nspace weather-service.web
