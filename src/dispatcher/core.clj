@@ -12,7 +12,7 @@
 (defn dispatch
   [{:keys [nspace func args] :as entry-map} cli-args]
   (require nspace)
-  (apply (ns-resolve nspace (symbol func)) (concat args cli-args)))
+  (apply (ns-resolve nspace func) (concat args cli-args)))
 
 (defn -main
   [entry & args]
