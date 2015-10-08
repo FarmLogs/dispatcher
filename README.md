@@ -1,36 +1,22 @@
 # dispatcher
 
-FIXME: description
-
-## Installation
-
-Download from http://example.com/FIXME.
+Launches the appropriate worker from an uberjar
 
 ## Usage
+In the resources directory:
+* Create a file entry-points.edn
 
-FIXME: explanation
+In project.clj:
+* Set `:main` to `dispatcher.core`
+* Add dispatcher as a dependency
 
-    $ java -jar dispatcher-0.1.0-standalone.jar [args]
+    $ java -jar some-service-0.1.0-standalone.jar worker-name [args]
 
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2015 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+## Sample entry-points.edn
+    {"web" {:nspace weather-service.web
+            :func -main}
+     "rain" {:nspace worker.core
+             :func -main
+             :args ["weather-service.workers" "enqueue-email"]}
+     "mrms-ingest" {:nspace weather-service.worker.mrms-ingest
+                    :func -main}}
