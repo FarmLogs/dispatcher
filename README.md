@@ -8,6 +8,11 @@ This dispatcher was built to share a single uberjar for these multiple responsib
 
 ## Usage
 
+In `project.clj`:
+
+* Add `[com.farmlogs/dispatcher "1.0.0"]` to your dependencies.
+* Set `:main` to `dispatcher.core`
+
 In the resources path:
 
 * Create a file entry-points.edn so that it's resource path is `/entry-points.edn`
@@ -15,10 +20,7 @@ In the resources path:
   then place the entry-points.edn file there. This will ensure that there is a constant place where
   developers can look to find the entry points.
 
-In `project.clj`:
-
-* Set `:main` to `dispatcher.core`
-* Add `dispatcher` as a dependency
+Then compile an uberjar and...
 
 ```bash
 $ java -jar some-service-0.1.0-standalone.jar <entry-point> [args]
