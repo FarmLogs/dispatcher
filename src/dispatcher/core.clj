@@ -2,7 +2,9 @@
   (:gen-class)
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
-            [clojure.string :refer [join]]))
+            [clojure.string :refer [join]]
+            [dispatcher.exceptions.uncaught
+             :refer [register-uncaught-exception-handler]]))
 
 (defn read-config
   []
@@ -20,6 +22,7 @@
    (let [config-keys (keys (read-config))]
      (println "Please specify one of:" (join ", " config-keys) ".")))
   ([entry-point & args]
+   (register-uncaught-exception-handler)
    (-> (read-config)
        (get entry-point)
        (dispatch args))))
