@@ -1,4 +1,4 @@
-(defproject com.farmlogs/dispatcher "1.0.3-SNAPSHOT"
+(defproject com.farmlogs/dispatcher "1.0.3"
   :description "Library to start specific workers in a jar"
   :url "https://github.com/FarmLogs/dispatcher"
   :license {:name "Eclipse Public License"
