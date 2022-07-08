@@ -5,6 +5,10 @@ Manages the entry points and initialization of an uberjar.
 This dispatcher was built to share a single uberjar for multiple
 responsibilities that are served by different JVM processes.
 
+## pre-commit
+
+- Install: https://pre-commit.com/
+- running locally: This will also happen automatically before committing to a branch, but you can also run the tasks with `pre-commit run --all-files`
 
 ## Usage
 
